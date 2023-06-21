@@ -7,13 +7,13 @@
       dnf:
         update_cache: yes
 
-    - name: install vim package
+    - name: remove vim package
       dnf:
         name: vim
-        state: latest
+        state: absent
 
-    - name: add htop package
+    - name: remove htop package
       dnf:
         name: htop
-        state: latest
+        state: absent
 

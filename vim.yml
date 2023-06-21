@@ -6,14 +6,23 @@
     - name: update_repository_index
       dnf:
         update_cache: yes
+      when: ansible_distribution == "Amazon"
+      #when: ansible_distribution in ["Debian","Ubuntu"]
+      #when: ansible_distribution == "CentOS" and ansible_distribution_version == "8.2"
 
     - name: install vim package
       dnf:
         name: vim
         state: latest
+      when: ansible_distribution == "Amazon"
+      #when: ansible_distribution in ["Debian","Ubuntu"]
+      #when: ansible_distribution == "CentOS" and ansible_distribution_version == "8.2"
 
     - name: add htop package
       dnf:
         name: htop
         state: latest
+      when: ansible_distribution == "Amazon"
+      #when: ansible_distribution in ["Debian","Ubuntu"]
+      #when: ansible_distribution == "CentOS" and ansible_distribution_version == "8.2"
 

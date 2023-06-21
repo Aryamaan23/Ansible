@@ -1,7 +1,7 @@
 ---
 - hosts: all
   become: true
-  tasks:
+  pre_tasks:
 
     - name: install updates (Ubuntu)
       apt:
@@ -24,4 +24,11 @@
       #when: ansible_distribution in ["Debian","Ubuntu"]
       #when: ansible_distribution == "CentOS" and ansible_distribution_version == "8.2"
       
-
+- hosts: db_servers
+  become: true
+  tasks:
+    - name: Install mariadb
+      dnf:
+        name:
+          - mariadb
+        state: latest

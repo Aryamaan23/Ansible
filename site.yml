@@ -29,6 +29,5 @@
   tasks:
     - name: Install mariadb
       dnf:
-        name:
-          - mariadb
+        name: mariadb105-server
         state: latest

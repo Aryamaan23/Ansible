@@ -2,19 +2,14 @@
 - hosts: all
   become: true
   tasks:
-    - name: update_repository_index
-      dnf:
-        update_cache: yes
-      when: ansible_distribution == "Amazon"
-      #when: ansible_distribution in ["Debian","Ubuntu"]
-      #when: ansible_distribution == "CentOS" and ansible_distribution_version == "8.2"
 
-    - name: install vim and htop  package
+    - name: install vim and htop  package and update cache repository index
       dnf:
         name:
           - vim
           - htop
         state: latest
+        update_cache: yes
       when: ansible_distribution == "Amazon"
       #when: ansible_distribution in ["Debian","Ubuntu"]
       #when: ansible_distribution == "CentOS" and ansible_distribution_version == "8.2"

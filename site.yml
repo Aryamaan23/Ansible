@@ -39,3 +39,8 @@
       apt:
         name: mariadb-server
         state: latest
+
+    - name: Install samba
+      apt:
+        name: samba
+        state: latest

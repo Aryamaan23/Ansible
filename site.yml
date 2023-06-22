@@ -58,3 +58,23 @@
         owner: root
         group: root
         mode: 0644
+
+
+- hosts: workstations
+  become: true
+  tasks:
+
+  - name: install unzip
+    package:
+      name: unzip
+
+  - name: install terraform
+    unarchive:
+      src: https://releases.hashicorp.com/terraform/1.5.1/terraform_1.5.1_darwin_amd64.zip
+      dest: /etc/terraform/
+      remote_src: yes
+      mode: 0755
+      owner: root
+      group: root 
+
+

@@ -49,3 +49,12 @@
       apt:
         name: samba
         state: latest
+
+    - name: Copy default html file for site
+      tags: Ubuntu,samba
+      copy:
+        src: default_site.html
+        dest: /etc/www/index.html
+        owner: root
+        group: root
+        mode: 0644
